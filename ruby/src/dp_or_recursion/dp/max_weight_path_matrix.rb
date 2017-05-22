@@ -9,8 +9,9 @@ def max_weight_value(matrix)
   rows = matrix.size
   cols = matrix[0].size
   weight = Array.new(rows) { Array.new(cols)}
-  for i in 0..cols-1
-    weight[0][i] = matrix[0][i]
+  weight[0][0] = matrix[0][0]
+  for j in 1..cols-1 # No other columns in 1st row is accessible as per movement rule
+    weight[0][j] = 0
   end
   for i in 1..rows-1
     weight[i][0] = weight[i-1][0] + matrix[i][0]
